@@ -46,10 +46,6 @@
         h1 {
             color: #333;
         }
-        input {
-            padding: 10px;
-            font-size: 16px;
-        }
         img {
             max-width: 100%;
             height: auto;
@@ -63,32 +59,25 @@
     </a>
     <h1>AI Image Generator</h1>
     <p>Enter some text below to generate an AI-powered image:</p>
-    <form id="image-form">
-        <input type="text" id="input-text" placeholder="Enter text...">
-        <button class="sta-button", type="submit">Generate Image</button>
-    </form>
+    <input type="text" id="input-text" placeholder="Enter text...">
+    <button onclick="generateImage()">Generate Image</button>
     <div id="image-container">
         <img id="generated-image" src="" alt="Generated Image">
     </div>
 
     <script>
-        const form = document.getElementById('image-form');
-        const inputText = document.getElementById('input-text');
-        const generatedImage = document.getElementById('generated-image');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const text = inputText.value;
-            // Replace the following line with your AI image generation logic
+        async function generateImage() {
+            const text = document.getElementById('input-text').value;
+            // Replace the following line with your actual AI image generation logic
             const imageUrl = await generateImageFromAI(text);
-            generatedImage.src = imageUrl;
-        });
+            document.getElementById('generated-image').src = imageUrl;
+        }
 
         // Simulate AI image generation (replace with actual API call)
         async function generateImageFromAI(text) {
             // Example: Fetch image URL from an API
-            // Replace this with your actual API endpoint
-            const response = await fetch(`https://aistart.pages.des/generate?text=${text}`);
+            // Replace this with your real AI API endpoint
+            const response = await fetch(`https://your-ai-api.com/generate?text=${text}`);
             const data = await response.json();
             return data.imageUrl;
         }
