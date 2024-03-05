@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Image Generator</h1>
+    <p>Enter some text below to generate an AI-powered image:</p>
+    <form id="image-form">
+        <input type="text" id="input-text" placeholder="Enter text...">
+        <button type="submit">Generate Image</button>
+    </form>
+    <div id="image-container">
+        <img id="generated-image" src="" alt="Generated Image">
+    </div>
+
+    <script>
+        const form = document.getElementById('image-form');
+        const inputText = document.getElementById('input-text');
+        const generatedImage = document.getElementById('generated-image');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = inputText.value;
+            // Replace the following line with your AI image generation logic
+            const imageUrl = await generateImageFromAI(text);
+            generatedImage.src = imageUrl;
+        });
+
+        // Simulate AI image generation (replace with actual API call)
+        async function generateImageFromAI(text) {
+            // Example: Fetch image URL from an API
+            // Replace this with your actual API endpoint
+            const response = await fetch(`https://aistart.pages.des/generate?text=${text}`);
+            const data = await response.json();
+            return data.imageUrl;
+        }
+    </script>
+</body>
+</html>
