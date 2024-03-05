@@ -21,6 +21,22 @@
         .cta-button:hover {
             background-color: #ff6347; /* Hover color */
         }
+        /* Call-to-action button */
+        .sta-button {
+            margin-top: 20px;
+            background-color: Blue; /* Customize button color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sta-button:hover {
+            background-color: Dark Blue; /* Hover color */
+        }
         /* Basic styling for the page */
         body {
             font-family: Arial, sans-serif;
@@ -49,7 +65,7 @@
     <p>Enter some text below to generate an AI-powered image:</p>
     <form id="image-form">
         <input type="text" id="input-text" placeholder="Enter text...">
-        <button type="submit">Generate Image</button>
+        <button class="sta-button", type="submit">Generate Image</button>
     </form>
     <div id="image-container">
         <img id="generated-image" src="" alt="Generated Image">
