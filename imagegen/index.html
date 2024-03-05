@@ -38,19 +38,13 @@
         .sta-button:hover {
             background-color: Dark Blue; /* Hover color */
         }
-        /* Basic styling for the page */
+        /* Add your custom CSS styles here */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
         }
-        h1 {
-            color: #333;
-        }
-        img {
+        .image-container {
             max-width: 100%;
             height: auto;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -58,29 +52,21 @@
     <a href="/">
         <button class="cta-button">Home Page</button>
     </a>
-    <h1>AI Image Generator</h1>
-    <p>Enter some text below to generate an AI-powered image:</p>
-    <input type="text" id="input-text" placeholder="Enter text...">
-    <button onclick="generateImage()">Generate Image</button>
-    <div id="image-container">
-        <img id="generated-image" src="" alt="Generated Image">
+        <h1>Image Generator with DALL·E-3</h1>
+    <p>Click the button below to generate an image:</p>
+    <button class="sta-button", onclick="generateImage()">Generate Image</button>
+
+    <div class="image-container">
+        <!-- Display the generated image here -->
+        <img id="generatedImage" src="" alt="Generated Image">
     </div>
 
     <script>
-        async function generateImage() {
-            const text = document.getElementById('input-text').value;
-            // Replace the following line with your actual AI image generation logic
-            const imageUrl = await generateImageFromAI(text);
-            document.getElementById('generated-image').src = imageUrl;
-        }
-
-        // Simulate AI image generation (replace with actual API call)
-        async function generateImageFromAI(text) {
-            // Example: Fetch image URL from an API
-            // Replace this with your real AI API endpoint
-            const response = await fetch(`https://your-ai-api.com/generate?text=${text}`);
-            const data = await response.json();
-            return data.imageUrl;
+        function generateImage() {
+            // Replace this with your actual DALL·E-3 image generation logic
+            // For now, let's display a placeholder image.
+            const placeholderImageUrl = 'https://via.placeholder.com/400x300';
+            document.getElementById('generatedImage').src = placeholderImageUrl;
         }
     </script>
 </body>
