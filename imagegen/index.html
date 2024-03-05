@@ -1,73 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.png">
-    <title>AI Image Generator</title>
-    <style>
-        /* Call-to-action button */
-        .cta-button {
-            margin-top: 20px;
-            background-color: #ff4500; /* Customize button color */
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #ff6347; /* Hover color */
-        }
-        /* Call-to-action button */
-        .sta-button {
-            margin-top: 20px;
-            background-color: Blue; /* Customize button color */
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .sta-button:hover {
-            background-color: Dark Blue; /* Hover color */
-        }
-        /* Add your custom CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .image-container {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <title>Image Generator</title>
 </head>
 <body>
-    <a href="/">
-        <button class="cta-button">Home Page</button>
-    </a>
-        <h1>Image Generator with DALL·E-3</h1>
-    <p>Click the button below to generate an image:</p>
-    <button class="sta-button", onclick="generateImage()">Generate Image</button>
-
-    <div class="image-container">
-        <!-- Display the generated image here -->
-        <img id="generatedImage" src="" alt="Generated Image">
-    </div>
-
-    <script>
-        function generateImage() {
-            // Replace this with your actual DALL·E-3 image generation logic
-            // For now, let's display a placeholder image.
-            const placeholderImageUrl = 'https://aistart.pages.dev/imagegen/gen/400x300';
-            document.getElementById('generatedImage').src = placeholderImageUrl;
-        }
-    </script>
+    <h1>Generate Custom Images</h1>
+    <form action="generate_image.php" method="POST">
+        <label for="image_size">Choose an image size:</label>
+        <select name="image_size">
+            <option value="128">128x128</option>
+            <option value="256">256x256</option>
+            <option value="512">512x512</option>
+            <option value="1024">1024x1024</option>
+        </select>
+        <br>
+        <input type="submit" value="Generate Image">
+    </form>
+    <?php
+    // Display the generated image (if available)
+    if (isset($_GET['image_url'])) {
+        echo '<img src="' . $_GET['image_url'] . '" alt="Generated Image">';
+    }
+    ?>
 </body>
 </html>
