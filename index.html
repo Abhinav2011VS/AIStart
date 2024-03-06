@@ -6,6 +6,19 @@
     <link rel="icon" type="image/x-icon" href="/favicon.png">
     <title>AI start</title>
     <style>
+        login-button {
+            width: 100px;
+            height: 50px;
+            position: absolute; /* This allows the button to be placed anywhere inside the div */
+            top: 10px; /* Adjust the distance from the top edge of the div */
+            right: 10px; /* Adjust the distance from the right edge of the div */
+        }
+        login-div {
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative; /* This is important for positioning the button */
+        }
         /* Reset default styles */
         * {
             margin: 0;
@@ -57,6 +70,9 @@
     </style>
 </head>
 <body>
+    <div class="login-div">
+        <button class="login-button">Login</button>
+    </div>
     <div class="graphics-container">
         <img class="ai-image" src="/AIStart.png" alt="AI-generated graphics">
         <h1>Welcome to My AI-Powered Website</h1>
