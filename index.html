@@ -6,28 +6,6 @@
     <link rel="icon" type="image/x-icon" href="/data/icons/favicon.png">
     <title>AI start</title>
     <style>
-        /* Change the selector from login-button to .login-button */
-        .login-button {
-            width: 100px;
-            height: 50px;
-            background-color: Orange;
-            color: White;
-            position: absolute; /* This allows the button to be placed anywhere inside the div */
-            /* Adjust the top and right properties */
-            top: 10px; /* Adjust the distance from the top edge of the div */
-            right: 10px; /* Adjust the distance from the right edge of the div */
-        }
-
-        .login-button:hover {
-            background-color: Dark Orange;
-        }
-        /* Change the selector from login-div to .login-div */
-        .login-div {
-            width: 500px;
-            height: 300px;
-            border: 1px solid black;
-            position: relative; /* This is important for positioning the button */
-        }
         /* Reset default styles */
         * {
             margin: 0;
@@ -76,13 +54,17 @@
         .cta-button:hover {
             background-color: #ff6347; /* Hover color */
         }
+
+        alignfooter1 {
+            text-align: left;
+        }
+
+        alignfooter2 {
+            text-align: right;
+        }
     </style>
 </head>
 <body>
-    <!-- Add an onclick attribute to the login button -->
-    <div class="login-div">
-        <button class="login-button" onclick="location.href = '/loginmain/'">Login</button>
-    </div>
     <div class="graphics-container">
         <img class="ai-image" src="/data/icons/AIStart.png" alt="AI-generated graphics">
         <h1>Welcome to My AI-Powered Website</h1>
@@ -94,5 +76,7 @@
             <button class="cta-button">Dashboard!</button>
         </a>
     </div>
+    <footer><alignfooter1>©Copyright 2024</alignfooter1></footer>
+    <footer><alignfooter2>AIStart is open-source! - <a href="https://github.com/Abhinav2011VS/AIStart/">@AIStart</a></alignfooter2></footer>
 </body>
 </html>
