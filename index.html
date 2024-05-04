@@ -25,6 +25,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative; /* Added to position footer */
         }
 
         /* AI-powered graphics section */
@@ -55,12 +56,27 @@
             background-color: #ff6347; /* Hover color */
         }
 
-        alignfooter1 {
-            text-align: left;
+        /* Footer styles */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Translucent black color */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
         }
 
-        alignfooter2 {
-            text-align: right;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            font-size: 14px;
         }
     </style>
 </head>
@@ -71,12 +87,19 @@
         <p>Experience the future with our cutting-edge AI technology!</p>
         <button class="cta-button">Learn More</button>
 
-        
         <a href="/dashboard/">
             <button class="cta-button">Dashboard!</button>
         </a>
     </div>
-    <footer><alignfooter1>©Copyright 2024</alignfooter1></footer>
-    <footer><alignfooter2>AIStart is open-source! - <a href="https://github.com/Abhinav2011VS/AIStart/">@AIStart</a></alignfooter2></footer>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="copyright">© Copyright 2024</div>
+            <div class="footer-links">
+                <a href="https://github.com/Abhinav2011VS/AIStart" target="_blank" rel="noopener noreferrer">@AIStart</a> is open-source
+            </div>
+        </div>
+    </div>
 </body>
 </html>
