@@ -90,7 +90,7 @@
         <img class="ai-image" src="/data/icons/AIStart.png" alt="AI-generated graphics">
         <h1>Welcome to My AI-Powered Website</h1>
         <p>Experience the future with our cutting-edge AI technology!</p>
-        <button class="cta-button">Learn More</button>
+        <button onlick="LearnMore()" class="cta-button">Learn More</button>
 
         <a href="/dashboard/">
             <button class="cta-button">Dashboard!</button>
@@ -106,5 +106,10 @@
             </div>
         </div>
     </div>
+    <script>
+        function LearnMore() {
+            window.location.href = "/learn-more";
+        }
+    </script>
 </body>
 </html>
