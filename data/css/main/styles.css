@@ -46,6 +46,11 @@ body {
 /* AI-powered graphics section */
 .graphics-container {
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.graphics-container:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* AI-generated image (replace with your own) */
