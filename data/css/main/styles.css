@@ -45,6 +45,7 @@ body {
 
 /* AI-powered graphics section */
 .graphics-container {
+  display: flex;
   width: 600px;
   height: 350px;
   border-radius: 20px;
