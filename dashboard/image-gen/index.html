@@ -19,13 +19,12 @@
                 <option value="square">Square</option>
                 <option value="landscape">Landscape</option>
             </select>
-            <button onclick="generateImage()">Generate Image</button>
+            <button id="generateButton" onclick="generateImage()">Generate Image</button>
+            <div id="imageGenerationStatus" class="indicator"></div>
             <div class="image-container">
                 <canvas id="generatedCanvas" width="512" height="512"></canvas>
                 <a id="downloadLink" download="generated_image.png" style="display: none;">Download Image</a>
             </div>
-            <div id="loadingIndicator" class="indicator">Loading model...</div>
-            <div id="processingIndicator" class="indicator">Generating image...</div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
