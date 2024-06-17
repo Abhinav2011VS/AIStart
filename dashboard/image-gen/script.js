@@ -1,9 +1,18 @@
+let model;
+
+async function loadModel() {
+    // Load the pre-trained model
+    model = await tf.loadGraphModel('model/model.json');
+}
+
 async function generateImage() {
     const textInput = document.getElementById('textInput').value;
     const imageType = document.getElementById('imageType').value;
 
-    // Load the pre-trained model
-    const model = await tf.loadGraphModel('model/model.json');
+    if (!model) {
+        console.error('Model not loaded yet.');
+        return;
+    }
 
     // Generate image
     const canvas = document.createElement('canvas');
@@ -17,9 +26,22 @@ async function generateImage() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(imageData, 0, 0, canvas.width, canvas.height);
 
-    const generatedImage = document.getElementById('generatedImage');
-    generatedImage.src = canvas.toDataURL();
+    const generatedCanvas = document.getElementById('generatedCanvas');
+    generatedCanvas.width = canvas.width;
+    generatedCanvas.height = canvas.height;
+    const generatedCtx = generatedCanvas.getContext('2d');
+    generatedCtx.drawImage(imageData, 0, 0);
+
+    // Show download link
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = generatedCanvas.toDataURL();
+    downloadLink.style.display = 'inline-block';
 
     // Clean up
     tf.dispose([stylizedImage, imageData]);
 }
+
+// Load model when page is ready
+document.addEventListener('DOMContentLoaded', function() {
+    loadModel();
+});
