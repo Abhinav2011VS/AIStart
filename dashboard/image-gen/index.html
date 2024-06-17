@@ -21,7 +21,8 @@
             </select>
             <button onclick="generateImage()">Generate Image</button>
             <div class="image-container">
-                <img id="generatedImage" src="" alt="Generated Image">
+                <canvas id="generatedCanvas" width="512" height="512"></canvas>
+                <a id="downloadLink" download="generated_image.png" style="display: none;">Download Image</a>
             </div>
         </div>
     </main>
