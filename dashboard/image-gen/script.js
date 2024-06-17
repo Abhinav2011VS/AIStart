@@ -1,8 +1,14 @@
 let model;
 
 async function loadModel() {
+    // Show loading indicator
+    document.getElementById('loadingIndicator').style.display = 'block';
+
     // Load the pre-trained model
     model = await tf.loadGraphModel('model/model.json');
+
+    // Hide loading indicator
+    document.getElementById('loadingIndicator').style.display = 'none';
 }
 
 async function generateImage() {
@@ -13,6 +19,9 @@ async function generateImage() {
         console.error('Model not loaded yet.');
         return;
     }
+
+    // Show processing indicator
+    document.getElementById('processingIndicator').style.display = 'block';
 
     // Generate image
     const canvas = document.createElement('canvas');
@@ -36,6 +45,9 @@ async function generateImage() {
     const downloadLink = document.getElementById('downloadLink');
     downloadLink.href = generatedCanvas.toDataURL();
     downloadLink.style.display = 'inline-block';
+
+    // Hide processing indicator
+    document.getElementById('processingIndicator').style.display = 'none';
 
     // Clean up
     tf.dispose([stylizedImage, imageData]);
