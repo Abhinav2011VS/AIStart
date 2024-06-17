@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/data/icons/favicon.png">
+    <title>AI start</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main container styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('data/img/backgrounds/space.jpg'); /* Set your desired background image */
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff; /* Text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Added to position footer */
+        }
+
+        /* AI-powered graphics section */
+        .graphics-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* AI-generated image (replace with your own) */
+        .ai-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Call-to-action button */
+        .cta-button {
+            margin-top: 20px;
+            background-color: #ff4500; /* Customize button color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6347; /* Hover color */
+        }
+
+        /* Footer styles */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Translucent black color */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            font-size: 14px;
+        }
+
+        /* Link style */
+        a {
+            text-decoration: none;
+            color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="graphics-container">
+        <img class="ai-image" src="/data/icons/AIStart.png" alt="AI-generated graphics">
+        <h1>Welcome to My AI-Powered Website</h1>
+        <p>Experience the future with our cutting-edge AI technology! AIStart brings you innovative solutions tailored to enhance productivity and efficiency across various industries.</p>
+        <p>Explore our AI-driven features:</p>
+        <ul>
+            <li>Advanced data analytics</li>
+            <li>Natural language processing</li>
+            <li>Image recognition</li>
+            <li>Personalized user experiences</li>
+        </ul>
+        <button class="cta-button">Learn More</button>
+
+        <a href="/dashboard/">
+            <button class="cta-button">Go to Dashboard</button>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="copyright">© Copyright 2024</div>
+            <div class="footer-links">
+                <a href="https://github.com/Abhinav2011VS/AIStart" target="_blank" rel="noopener noreferrer">AIStart</a> is open-source
+            </div>
+        </div>
+    </div>
+</body>
+</html>
