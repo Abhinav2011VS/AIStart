@@ -35,7 +35,7 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  color: #fff; /* Text color */
+  color: black; /* Text color */
   display: flex;
   justify-content: center;
   align-items: center;
