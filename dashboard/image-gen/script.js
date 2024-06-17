@@ -3,12 +3,11 @@ let modelLoaded = false;
 
 async function loadModel() {
     try {
-        // Show loading indicator
         const loadingIndicator = document.getElementById('imageGenerationStatus');
         loadingIndicator.textContent = 'Loading model...';
         loadingIndicator.style.display = 'block';
 
-        // Load the pre-trained model
+        // Load the TensorFlow.js model
         model = await tf.loadGraphModel('model/model.json');
         modelLoaded = true;
 
@@ -22,26 +21,30 @@ async function loadModel() {
 }
 
 async function generateImage() {
-    if (!modelLoaded) {
-        console.error('Model not loaded yet.');
-        return;
-    }
-
     try {
-        // Show processing indicator
-        const processingIndicator = document.getElementById('imageGenerationStatus');
-        processingIndicator.textContent = 'Generating image...';
-        processingIndicator.style.display = 'block';
+        if (!modelLoaded) {
+            console.error('Model not loaded yet.');
+            return;
+        }
 
         const textInput = document.getElementById('textInput').value;
         const imageType = document.getElementById('imageType').value;
 
-        // Generate image
+        // Validate input
+        if (!textInput.trim()) {
+            console.error('Text input is empty.');
+            return;
+        }
+
         const canvas = document.createElement('canvas');
         canvas.width = (imageType === 'square') ? 512 : 1024;
         canvas.height = (imageType === 'square') ? 512 : 512;
 
-        const stylizedImage = await model.predict(tf.browser.fromPixels(canvas));
+        // Preprocess text if needed before passing to the model
+        const processedText = preprocessText(textInput);
+
+        // Generate image based on processed text
+        const stylizedImage = await model.predict(tf.tensor(processedText));
         const imageData = await tf.browser.toPixels(stylizedImage);
 
         const ctx = canvas.getContext('2d');
@@ -60,15 +63,20 @@ async function generateImage() {
         downloadLink.style.display = 'inline-block';
 
         // Hide processing indicator
-        processingIndicator.style.display = 'none';
+        document.getElementById('imageGenerationStatus').style.display = 'none';
 
         // Clean up
         tf.dispose([stylizedImage, imageData]);
     } catch (error) {
         console.error('Failed to generate image:', error);
         // Update processing indicator with error message
-        processingIndicator.textContent = 'Failed to generate image';
+        document.getElementById('imageGenerationStatus').textContent = 'Failed to generate image';
     }
+}
+
+function preprocessText(inputText) {
+    // Example preprocessing if needed
+    return inputText.toLowerCase(); // Convert text to lowercase as an example
 }
 
 // Load model when page is ready
