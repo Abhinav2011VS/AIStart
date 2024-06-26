@@ -1,12 +1,26 @@
 {
     "name": "aistart",
     "version": "1.0.0",
+    "description": "An AI Development",
+    "author": {
+        "email": "abhinav2011vs@gmail.com",
+        "name": "Abhinav VS",
+        "url": "https://aistart.pages.dev"
+    },
+    "license": "MIT",
+    "homepage": "https://aistart.pages.dev",
     "main": "main.js",
     "icon": "favicon.png",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "dist": "electron-builder build",
+        "dist:win": "npm run dist -- -w",
+        "dist:mac": "npm run dist -- -m",
+        "dist:linux": "npm run dist -- -l",
+        "lint": "eslint --config .eslintrc.json ."
     },
     "devDependencies": {
-        "electron": "^31.1.0"
+        "electron": "^31.1.0",
+        "electron-builder": "^24.13.3"
     }
 }

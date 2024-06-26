@@ -14,7 +14,3 @@ npm-debug.log
 .vs/
 .vscode/
 .idea/
-
-# Dependency lock files
-package-lock.json
-yarn.lock
