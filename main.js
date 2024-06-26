@@ -14,6 +14,7 @@ function createWindow() {
             symbolColor: '#ffffff',
             height: 30
         },
+        icon: path.join(__dirname, 'favicon.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         }
