@@ -1,0 +1,60 @@
+appId: 'aistart'
+productName: 'AIStart'
+artifactName: 'AIStart-${version}.${ext}'
+
+copyright: 'Copyright © 2024 Abhinav VS'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.vscode}'
+
+extraResources:
+  - 'libraries'
+
+# Windows Configuration
+win: 
+  target: [
+    {
+      target: 'nsis',
+      arch: ['x64', 'ia32'],
+    },
+    {
+      target: 'msi',
+      arch: ['x64', 'ia32'],
+    },
+  ]
+
+# macOS Configuration
+mac:
+  target: [
+    {
+      target: 'dmg',
+      arch: ['x64', 'arm64'],
+    },
+  ]
+  artifactName: 'AIStart-${version}-${os}.${ext}'
+  category: 'public.app-category.ai'
+
+# Linux Configuration
+linux:
+  target: [
+    {
+      target: 'AppImage',
+      arch: ['x64', 'armv7l', 'arm64'],
+    },
+    {
+      target: 'deb',
+      arch: ['x64', 'arm64'],
+    },
+  ]
+  maintainer: 'Abhinav VS'
+  vendor: 'Abhinav VS'
+  synopsis: 'AIStart'
+  description: 'An AI Development'
+  category: 'AI'
+
+directories:
+  buildResources: 'build'
+  output: 'dist'
